@@ -5,7 +5,23 @@ function getComputerChoice(){
     const choices = [ROCK, PAPER, SCISSORS];
     return choices[Math.floor(Math.random()*choices.length)];
 }
-
+function getPlayerChoice(){
+    let playerSelection = prompt('Select figure:\n 1 for rock, 2 for paper, 3 for scissors');
+    switch(playerSelection){
+        case '1':
+            return ROCK;
+            break;
+        case '2':
+            return PAPER;
+            break;
+        case '3':
+            return SCISSORS;
+            break;
+        default:
+            console.log('error')
+        break;
+    }
+}
 function playRound(playerSelection, computerSelection){
 
     if(playerSelection.toUpperCase()===ROCK){
