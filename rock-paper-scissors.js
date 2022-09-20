@@ -1,6 +1,9 @@
 const ROCK = 'ROCK';
 const PAPER = 'PAPER';
 const SCISSORS = 'SCISSORS';
+const PLAYERWIN = 1;
+const PLAYERLOSE = -1;
+const DRAW = 0;
 function getComputerChoice(){
     const choices = [ROCK, PAPER, SCISSORS];
     return choices[Math.floor(Math.random()*choices.length)];
@@ -27,37 +30,46 @@ function playRound(playerSelection, computerSelection){
     if(playerSelection.toUpperCase()===ROCK){
         switch(computerSelection){
             case ROCK:
-                return 'Draw! Rock can\'t beat rock';
+                console.log('Draw! Rock can\'t beat rock');
+                return DRAW;
                 break;
             case PAPER:
-                return 'You lose! Paper beats rock!';
+                console.log('You lose! Paper beats rock!');
+                return PLAYERLOSE;
                 break;
             case SCISSORS:
-                return 'You win! Scissors can\'t beat rock!';
+                console.log('You win! Scissors can\'t beat rock!');
+                return PLAYERWIN; 
                 break;
         }
     } else if(playerSelection.toUpperCase()===PAPER){
         switch(computerSelection){
             case ROCK:
-                return 'You win! Rock can\'t beat paper!';
+                console.log('You win! Rock can\'t beat paper!');
+                return PLAYERWIN;
                 break;
             case PAPER:
-                return 'Draw! Paper can\'t beat paper!';
+                console.log('Draw! Paper can\'t beat paper!');
+                return DRAW;
                 break;
             case SCISSORS:
-                return 'You lose! Scissors beat paper!';
+                console.log('You lose! Scissors beat paper!');
+                return PLAYERLOSE;
                 break;
         }
     } else{
         switch(computerSelection){
             case ROCK:
-                return 'You lose! Scissors can\'t beat rock!';
+                console.log('You lose! Scissors can\'t beat rock!');
+                return PLAYERLOSE;
                 break;
             case PAPER:
-                return 'You win! Scissors beat paper!';
+                console.log('You win! Scissors beat paper!');
+                return PLAYERWIN;
                 break;
             case SCISSORS:
-                return 'Draw! Scissors can\'t beat scissors!';
+                console.log('Draw! Scissors can\'t beat scissors!');
+                return DRAW;
                 break;
         }
     }
